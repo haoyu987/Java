@@ -26,13 +26,17 @@ public class Bee extends Animal implements Flyable{
     
     @Override
     public int flyForSomeDistance(int distance) {
-        // TODO Auto-generated method stub
-        return 0;
+		// implements interface Flyable
+        System.out.println(getName() + " is flying");
+		int energyBefore = getCurrentEnergy();
+		int energyAfter = energyConsume(distance);
+		
+		return energyBefore - energyAfter;
     }
 
     @Override
     public void land() {
-        // TODO Auto-generated method stub
-        
+		// implements interface Flyable
+		System.out.println(getName() + " landing.");
     }
 }

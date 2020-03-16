@@ -1,11 +1,11 @@
 package hw5;
 
 /**
- * Plane
+ * Airship
  */
-public class Plane extends Machinery implements Flyable {
-
-    Plane(int capacity, int lifespan, String name){
+public class Airship extends Machinery implements Flyable {
+    
+    Airship(int capacity, int lifespan, String name){
         super(capacity, lifespan, name);
     };
 
@@ -19,7 +19,7 @@ public class Plane extends Machinery implements Flyable {
 
 		if(getCurrentEnergy() > 0)
 		{
-			System.out.println(getName() + " taxis and takes off.");
+			System.out.println(getName() + " rises.");
 			return true;
 		}
 		else
@@ -32,7 +32,7 @@ public class Plane extends Machinery implements Flyable {
     @Override
 	public int flyForSomeDistance(int distance) {
 		// implements interface Flyable
-		System.out.println(getName() + " is sliding.");
+		System.out.println(getName() + " is floating.");
 		int fuelBefore = getFuel();
 		int fuelAfter = updateFuel(-distance);
         
@@ -49,5 +49,4 @@ public class Plane extends Machinery implements Flyable {
 		// implements interface Flyable
 		System.out.println(getName() + " landing.");
 	}
-
 }
