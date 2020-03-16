@@ -1,4 +1,4 @@
-package hw;
+package hw5;
 
 /**
  * Machinery
@@ -7,11 +7,11 @@ public class Machinery {
     private String name;
     private int capacity;
     private int currentFuel;
-    private boolean isBroken = false;
+    private boolean isGood = true;
     private int maxLifespan;
     private int currentLifespan;
 
-    Machinery(int capacity, int lifeSpan, String name){
+    Machinery(int capacity, int lifeSpan, String name) {
         this.name = name;
         this.capacity = capacity;
         this.currentFuel = capacity;
@@ -19,26 +19,43 @@ public class Machinery {
         this.currentLifespan = lifeSpan;
     };
 
-    public void start(){};
-    public void stop(){};
-    public void refuel(){};
-    public void fix(){};
-    
+    public void start() {
+        System.out.println(getName() + " start.");
+    };
+
+    public void stop() {
+        System.out.println(getName() + " stop.");
+    };
+
+    public void refuel(int fuelVolumn, String Fuel) {
+        System.out.println("Supply" + fuelVolumn + " Unit " + Fuel + " to " + getName());
+        updateFuel(fuelVolumn);
+    };
+
+    public void fix() {
+        System.out.println(getName() + " fixed.");
+    };
+
     // setter
-    public void updateLife(int consumption){
+    public void updateLife(int consumption) {
         currentLifespan += consumption;
 
-        isBroken = false;
+        isGood = true;
 
-        if(currentLifespan >= maxLifespan)
-        {
+        if (currentLifespan >= maxLifespan) {
             currentLifespan = maxLifespan;
-        }
-        else if(currentLifespan < 0)
-        {
+        } else if (currentLifespan < 0) {
             currentLifespan = 0;
-            isBroken = true;
+            isGood = false;
         }
+    }
+
+    public int updateFuel(int fuelVolumn) {
+        currentFuel += fuelVolumn;
+        currentFuel = currentFuel > capacity? capacity : currentFuel;
+        currentFuel = currentFuel < 0? 0 : currentFuel;
+
+        return currentFuel;
     }
 
     // getter
@@ -55,7 +72,7 @@ public class Machinery {
     }
 
     public boolean checkFunc(){
-        return isBroken;
+        return isGood;
     }
 
     public int getLifespan(){
