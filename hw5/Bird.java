@@ -1,5 +1,3 @@
-package hw5;
-
 /**
  * Bird
  */

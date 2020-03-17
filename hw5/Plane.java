@@ -1,5 +1,3 @@
-package hw5;
-
 /**
  * Plane
  */
@@ -17,14 +15,14 @@ public class Plane extends Machinery implements Flyable {
             return false;
         }
 
-		if(getCurrentEnergy() > 0)
+		if(getFuel() > 0)
 		{
 			System.out.println(getName() + " taxis and takes off.");
 			return true;
 		}
 		else
 		{
-			rest();
+			stop();
 			return false;
 		}
     }

@@ -1,4 +1,4 @@
-package hw5;
+// package hw5;
 
 /**
  * Airship
@@ -17,14 +17,14 @@ public class Airship extends Machinery implements Flyable {
             return false;
         }
 
-		if(getCurrentEnergy() > 0)
+		if(getFuel() > 0)
 		{
 			System.out.println(getName() + " rises.");
 			return true;
 		}
 		else
 		{
-			rest();
+			stop();
 			return false;
 		}
     }
