@@ -26,7 +26,7 @@ public class Machinery {
     };
 
     public void refuel(int fuelVolumn, String Fuel) {
-        System.out.println("Supply" + fuelVolumn + " Unit " + Fuel + " to " + getName());
+        System.out.println("Supply " + fuelVolumn + " Unit " + Fuel + " to " + getName());
         updateFuel(fuelVolumn);
     };
 
